@@ -1,0 +1,39 @@
+{
+  "name": "hms-electron",
+  "version": "1.0.0",
+  "description": "Electron desktop shell for Hospital Management System",
+  "main": "main.js",
+  "author": "HMS",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^38.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.hms.desktop",
+    "productName": "Hospital Management System",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "**/*",
+      "../client/dist/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
